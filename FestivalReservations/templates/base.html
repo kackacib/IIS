@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Festival</title>
+	<!-- <link rel="stylesheet" href="{%static 'css/menu.css' %}?version=1"> -->
+	<link rel="stylesheet" href="{%static 'css/formz.css' %}?version=1">
+	<link rel="stylesheet" href="{%static 'css/divs.css' %}?version=1">
+	<link rel="stylesheet" href="{%static 'css/style.css' %}?version=1">
+
+	<!-- <link rel="stylesheet" href="{% static 'js/j.js' %}"> -->
+	<link href='https://fonts.googleapis.com/css?family=Alegreya Sans' rel='stylesheet'>
+	
+</head>
+<body>
+
+<div class="navbar">
+	<ul>
+	  <li class="active"><a href="/fest">Home</a></li>
+	  <li><a href="/fest/FestivalList">Nabídka festivalů</a></li>
+	  <li><a href="/fest/InterpretList">Interpreti</a></li>
+	  
+	  {% if request.user.groups.all.0.name == "admin" %}
+	  	<li><a href="/fest/FestivalCreate">Vytvořit festival</a></li>
+	  	<li><a href="/fest/InterpretCreate">Vytvořit Interpreta</a></li>
+	  	<li><a href="/fest/ReservationsAdmin">Správa rezervací</a></li>
+	  	<li><a href="/fest/UserAdmin">Správa uživatelů</a></li>
+	  	
+	  {% elif request.user.groups.all.0.name == "organizer" %}
+	  	<li><a href="/fest/FestivalCreate">Vytvořit festival</a></li>
+	  	<li><a href="/fest/InterpretCreate">Vytvořit Interpreta</a></li>
+	  	<li><a href="/fest/ReservationsAdmin">Správa rezervací</a></li>
+
+	  {%elif request.user.groups.all.0.name == "cashier" %}
+	  	<li><a href="/fest/ReservationsAdmin">Správa rezervací</a></li>
+	  {% endif %}
+
+	  {% if request.user.is_authenticated %}
+	  	<li><a href="/fest/MyReservations">Moje Rezervace</a></li>
+	  	<li><a href="/fest/user">{{ request.user }} Účet</a>/<a href="/fest/logout">Odhlásit</a></li>
+	  {% else %}
+	  	<li><a href="/fest/login">Login</a>/<a href="/fest/register">Zaregistrovat</a></li>
+	  {% endif %}
+	</ul> 
+</div>
+
+{% block content%}
+	replace me
+{% endblock %}
+
+
+<div class="footer">
+	<p>IIS project, 2020.</p>
+</div>
+
+</body>
+
+</html> 

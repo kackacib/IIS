@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+        <h1>{{object.Name}}</h1>
+        <h2>Members: {{object.Members}}</h2>
+        <h3>Rating: {{object.Rating}}</h3>
+        <h3>Genre: {{object.Genre}}</h3>
+        {% if object.photoLogo %}
+        <div id="wrapper">
+            <div class="image-holder">
+                <img src="{{ object.photoLogo.url|cut:'/FestivalReservations' }}" class="img-responsive" style="width: 60%;" /> 
+            </div>
+        </div>
+        {% endif %}
+    {% endblock %}

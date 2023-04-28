@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	
+	<div class="content">
+        <div class="column">
+            <form action="{% url 'FestivalReservations:UserEdit' %}" method='POST'> {% csrf_token %}
+                {{form.as_p}}
+                <input class="save_button" type='submit' value='Uložit změny' />
+            </form>
+        </div>
+        
+        {%if success == 0%}
+        <p>Změny uloženy.</p>
+        {%elif success == -1%}
+        <p>Vyskytla se chyba</p>
+        {%endif%}
+    </div>
+	
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="{% url 'FestivalReservations:FestivalDelete' object.id  %}" method='POST'>{% csrf_token %}
+    <h1>Urcite chcete odstranit festival "{{ object.FestivalBrand }}"?</h1>
+    <p><input type='submit' value='Smazat'/>  <a href="{% url 'FestivalReservations:FestivalList' %}">Zrušit</a></p>
+
+</form>
+
+{% endblock %}

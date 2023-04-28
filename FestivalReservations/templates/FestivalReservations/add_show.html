@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content">
+	<div class="column">
+		<form action="{% url 'FestivalReservations:AddShow' FestivalID %}" method='POST'> {% csrf_token %}
+    		{{form.as_p}}
+    		<input class="save_button" type='submit' value='Přidat' />
+		</form>
+	</div>
+</div>
+
+{% endblock %}

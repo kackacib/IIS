@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<h2>Úprava údajů uživatele {{user}}</h2>
+	<div class="content">
+        <div class="column">
+            <form action="{% url 'FestivalReservations:UserEditAdmin' user_id %}" method='POST'> {% csrf_token %}
+                {{form.as_p}}
+                <input class="save_button" type='submit' value='Uložit změny' />
+            </form>
+        </div>
+        
+        {%if success == 0%}
+        <p>Změny uloženy.</p>
+        {%elif success == -3%}
+        <p>Vyskytla se chyba</p>
+        {%elif success == -1%}
+        <p>Uživatel se stejným loginem už existuje</p>
+        {%endif%}
+    </div>
+	
+{% endblock %}

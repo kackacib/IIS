@@ -1,0 +1,8 @@
+gunicorn
+django
+django-heroku
+jsonfield
+django-vanilla-views
+Pillow
+psycopg2-binary
+dj-database-url

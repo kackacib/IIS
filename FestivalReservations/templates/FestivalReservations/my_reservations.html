@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	{%if empty%}
+		<p>Zatím nemáte žádné rezervace</p>
+	{%else%}
+	{%for reservation in my_reservations%}
+	<div class="res_container">
+		<h2> Festival: {{reservation.Festival}} | Počet: {{reservation.Tickets}} ks | Zaplaceno: <input type="checkbox" {% if reservation.Paid %}checked{% endif %} disabled="True" /></h2>
+	</div>
+	{%endfor%}
+	{%endif%}
+{% endblock %}

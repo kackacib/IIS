@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	
+	<div class="content">
+        <div class="column">
+            <form action="{% url 'FestivalReservations:AddUser' %}" method='POST'> {% csrf_token %}
+                {{form.as_p}}
+                <input class="save_button" type='submit' value='Přidat uživatele' />
+            </form>
+        </div>
+        
+        {%if success == 0%}
+        <p>Uživatel byl přidán.</p>
+        {%elif success == -1%}
+        <p>Vyskytla se chyba</p>
+        {%elif success == -2%}
+        <p>Hesla se neshodují</p>
+        {%elif success == -3%}
+        <p>Uživatelské jméno již existuje</p>
+        {%endif%}
+    </div>
+	
+{% endblock %}

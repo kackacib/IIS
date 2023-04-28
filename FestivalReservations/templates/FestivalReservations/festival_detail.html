@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+        <h1>{{festival.FestivalBrand}}</h1>
+        <h2>Místo: {{festival.Place}}</h2>
+        <h3>Cena za lístek: {{festival.PriceForTicket}}</h3>
+        {% if festival.photoLogo %}
+        <div id="wrapper">
+            <div class="image-holder">
+                <img class="img-l" src="{{ object.photoLogo.url|cut:'/FestivalReservations' }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" /> 
+            </div>
+        </div>
+        {% endif %}
+         <h1><b>Harmonogram Festivalu</b></h1>
+        <style>
+            table {
+                max-width: 80%;
+                border-width: 2px;
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: .1em;
+                font-size: 20px; 
+                margin: auto;
+
+            }
+            th, td {
+                background-color: #1A1E23;
+                margin: auto;
+                }
+        </style>
+       
+        
+
+        {% for key, value in stage_view.items %}
+        <h1>Stage: {{key}}</h1>
+
+        <table class="detail_table">
+            {%for data in value %}
+            <tr>
+                <th>Interpret</th>
+                    <td>{{data.Interpret}}</td>
+            </tr>
+                <th>Datum</th>
+                    <td>{{data.Datum}}</td>
+            </tr>
+            <tr> 
+                <th> Začátek</th>
+                    <td>{{data.Start}}</td>
+            </tr>
+            <tr> 
+                <th>Konec </th>
+                    <td>{{data.End}}</td>
+            </tr>
+            <br>
+            {% endfor %}
+
+        </table> 
+        {% endfor %}
+    {% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="content">
+	<div class="column">
+		<form enctype="multipart/form-data" action="." method="POST"> {% csrf_token %}
+    		<p>
+                <label for="id_FestivalBrand">Jméno festivalu:</label>
+                <input type="text" name="FestivalBrand" placeholder="Your FestBrand!" required="" id="id_FestivalBrand">
+            </p>
+            <p>
+                <label for="id_Place">Místo:</label>
+                <input type="text" name="Place" placeholder="Your location" class="" id="" rows="3" cols="50" required="">
+            </p>
+            <p>
+                <label for="id_Genre">Žánr:</label>
+                <input type="text" name="Genre" maxlength="30" required="" id="id_Genre">
+            </p>
+            <p>
+                <label for="id_Start">Začátek:</label>
+                <input type="date" name="Start" class="form-control" required="" id="id_Start">
+            </p>
+            <p>
+                <label for="id_End">Konec:</label>
+                <input type="date" name="End" class="form-control" required="" id="id_End">
+            </p>
+            <p>
+                <label for="id_PriceForTicket">Cena za listek:</label>
+                <input type="number" name="PriceForTicket" value="199" required="" id="id_PriceForTicket">
+            </p>
+            <p>
+                <label for="id_Capacity">Kapacita:</label>
+                <input type="number" name="Capacity" value="6" required="" id="id_Capacity">
+            </p>
+            <p>
+                <label for="id_NumberOfStages">Počet pódií:</label>
+                <input type="number" name="NumberOfStages" required="" id="id_NumberOfStages">
+            </p>
+            <p>
+                <label for="id_photoLogo">Fotka:</label>
+                <input type="file" name="photoLogo" accept="image/*" id="id_photoLogo">
+            </p>
+    		<input class="save_button" type="submit" value="Save">
+	</div>
+</div>
+
+
+
+
+{% endblock %}

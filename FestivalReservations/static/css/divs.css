@@ -1,0 +1,388 @@
+/*.user_container {
+    background-color: #1A1E23;
+    width: 80%;
+    margin: 10px auto;
+    height: 25px
+}
+
+.user_container p {
+  margin: auto;
+  text-align: left;
+}
+
+.user_container span {
+  margin: auto 5px;
+}
+
+
+.user_info {
+   color: white; 
+   text-align: left;
+}
+
+.user_settings {
+  color: white;
+  display: inline;
+  text-align: right;
+  float:right;
+  margin-top: auto;
+  margin-right: 10px
+
+}
+
+.user_settings a {
+  color: #6495ED
+}*/
+
+/*.res_info {
+   color: white; 
+   text-align: left;
+}
+
+.res_container {
+    background-color: #1A1E23;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.res_container p {
+  margin: auto;
+  text-align: left;
+}
+
+.res_container span {
+  margin: auto 5px;
+}
+
+.res_settings {
+  color: white;
+  display: inline;
+  text-align: right;
+  float:right;
+  margin-top: auto;
+  margin-right: 10px
+}
+
+.res_settings a {
+  color: #6495ED
+}*/
+
+.detail_table {
+  color: white
+}
+
+.res_container {
+    background-color: #1A1E23;
+    width: 80%;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 10px;
+    transition: background-color 2s;
+}
+
+.res_container:hover {
+  background-color: #36454f;
+  transition: background-color 2s;
+}
+
+.res_container h2 {
+    display: inline-block;
+    color: white;
+}
+
+.res_container div{
+  display: inline;
+  text-align: right;
+  margin-right: 10px;
+  vertical-align: middle;
+
+}
+
+.res_settings {
+  color: white;
+  display: inline;
+  text-align: right;
+  float:right;
+  margin-top: 20px;
+  margin-right: 10px
+
+}
+
+.res_settings a {
+  color: #6495ED;
+  margin-right: 10px;
+}
+
+.user_container {
+    background-color: #1A1E23;
+    width: 80%;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 10px;
+    transition: background-color 2s;
+}
+
+.user_container:hover {
+  background-color: #36454f;
+  transition: background-color 2s;
+}
+
+.user_container h2 {
+    display: inline-block;
+    color: white;
+}
+
+.user_container div{
+  display: inline;
+  text-align: right;
+  margin-right: 10px;
+  vertical-align: middle;
+
+}
+
+.user_settings {
+  color: white;
+  display: inline;
+  text-align: right;
+  float:right;
+  margin-top: 20px;
+  margin-right: 10px
+
+}
+
+.user_settings a {
+  color: #6495ED;
+  margin-right: 10px;
+}
+
+.interpret_container{
+    margin: 20px;
+    background-color: #1A1E23;
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 10px;
+    transition: background-color 2s;
+}
+
+.interpret_container:hover {
+  background-color: #36454f;
+  transition: background-color 2s;
+}
+
+.interpret_container h2 {
+    display: inline-block;
+    color: white;
+}
+
+.interpret_container div{
+  display: inline;
+  text-align: right;
+  margin-right: 10px;
+  vertical-align: middle;
+
+}
+
+.interpret_settings {
+  color: white;
+  display: inline;
+  text-align: right;
+  float:right;
+  margin-top: 20px;
+  margin-right: 10px
+
+}
+
+.interpret_settings a {
+  color: #6495ED;
+  margin-right: 10px;
+}
+
+.fest_container {
+    margin: 20px;
+    background-color: #1A1E23;
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 10px;
+    transition: background-color 2s;
+}
+
+.fest_container:hover {
+  background-color: #36454f;
+  transition: background-color 2s;
+}
+
+.fest_container h2 {
+    display: inline-block;
+    color: white;
+}
+
+.fest_container div{
+  display: inline;
+  text-align: right;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.fest_settings {
+  color: white;
+  display: inline;
+  text-align: right;
+  float:right;
+  margin-top: 20px;
+  margin-right: 10px
+
+}
+
+.fest_settings a {
+  color: #6495ED;
+  margin-right: 10px;
+}
+
+.user_profile {
+  background-color: #1A1E23;
+  width: 80%;
+  margin: 10px auto;
+  color: white;
+  text-align: center;
+}
+
+.user_profile p 
+{
+  margin: auto;
+  position: relative;
+  left: 25%;
+  text-align: left;
+}
+
+.user_profile h2 {
+  margin: auto;
+  position: relative;
+  left: 25%;
+  text-align: left;
+}
+
+.user_profile a {
+  margin: auto;
+  position: relative;
+  text-align: left;
+  color: #6495ED
+}
+}
+
+
+
+.reserveUserPage{
+    width: 33%;
+    float: left;
+    height: 300px;
+    display: inline-block;
+    background-color: white;
+    margin: 20px 20%;
+}
+
+.footer{
+    width: 100%;
+}
+
+
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+  height: 300px;
+}
+
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  margin: 20px 20%;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 300px;
+}
+
+
+.normalP {
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+}
+
+.btn {
+  border: none; /* Remove borders */
+  color: white; /* Add a text color */
+  padding: 4px 10px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+
+.success {background-color: #4CAF50;} /* Green */
+.success:hover {background-color: #46a049;}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.danger {background-color: #f44336;} /* Red */
+.danger:hover {background: #da190b;}
+
+
+#selectbox {
+  margin: 5px;
+}
+
+
+#wrapper {
+  width: 700px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.image-holder {
+  margin: 8px;
+  border-radius: 10%;
+  overflow: hidden;
+}
+.image-holder img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+}
+
+.image-holder img {
+  filter: hue-rotate(0deg);
+  transition: 0.5s ease-in-out;
+}
+
+.image-holder:hover img {
+  filter: hue-rotate(180deg);
+  transition: 0.5s ease-in-out;
+}

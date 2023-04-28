@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="column">
+<form enctype="multipart/form-data" action='.' method='POST'> {% csrf_token %}
+    {{form.as_p}}
+    <input class="save_button" type='submit' value='Přidat' />
+</form>
+</div>
+</div>
+
+
+{% endblock %}

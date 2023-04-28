@@ -1,0 +1,12 @@
+<form method="post">  
+    {% csrf_token %}
+
+    {% if request.user.groups.all.0.name == "admin"}  
+        {{ form }}  
+    {% elif request.user.groups.all.0.name == "customer"}
+        {{}}
+    {% endif %}
+    <input type="submit" value="Save">  
+</form>  
+
+<p>{{request.user.groups.all.0.name}}</p>

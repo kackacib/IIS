@@ -1,0 +1,66 @@
+{%  extends 'base.html' %}
+{% block content %}
+
+<div class="user_profile">
+    <br> 
+    <h2>Správa účtu uživatele: {{request.user}}</h2>
+    <br> 
+    <p>Login: {{user}}</p>
+    <br> 
+    <p>Zařazení: 
+    {% if user.groups.all.0.name == "admin" %}
+    administrátor
+    {% elif user.groups.all.0.name == "organizer" %}
+    pořadatel
+    {% elif user.groups.all.0.name == "cashier" %}
+    pokladní
+    {% else %}
+    divák
+    {% endif %}
+    </p>
+    <br> 
+    <p>Email: {{user.email}}</p>
+    <br> 
+    <p><a href="/fest/ChangePassword">Změnit heslo</a></p>
+    <br> 
+    <p><a href="/fest/UserEdit">Upravit účet</a></p>
+    <br> 
+</div>
+<!--
+<h2>Sprava rezervaci</h2>
+    <div id="obal" style="height: 300px; margin: 10px 4%;">
+    <div class="tab" style="height: 300px;">
+        {% for reserve in Reservations %}
+            <button class="tablinks" onclick="openFest(event, '{{reserve.Festival.id}}')" id="defaultOpen">{{reserve.Festival}}:{{reserve.User}}</button>
+        {% endfor %}
+    </div>
+
+    {% for reserve in Reservations %}
+        <div id={{reserve.Festival.id}} class="tabcontent" style="display: none;">
+            <h1>{{reserve.User}}<h1>
+            <p class="normalP">{{reserve.Festival}}</p>
+            <p class="normalP">Tickets: {{reserve.Tickets}}</p>
+            <p class="normalP">Paid: {{reserve.Paid}}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+    <script>
+        function openFest(evt, FestName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(FestName).style.display = "inline-block";
+            document.getElementById(FestName).className += " active";
+        }
+
+    </script>
+    <h1>You have no reservations, yet!</h1>
+
+{% endblock content %}

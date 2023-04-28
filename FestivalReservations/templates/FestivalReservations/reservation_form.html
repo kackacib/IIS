@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h2>{{festival}}</h2>
+    {% if capacity %}
+        {% if request.user.is_authenticated %}
+            <div class="content">
+                <div class="column">
+                    <form action="{% url 'FestivalReservations:reservation-page' fest %}" method='POST'> {% csrf_token %}
+                        {{form.as_p}}
+                        <input class="save_button" name="reserve" type='submit' value='Rezervovat' />
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <div class="content">
+                <div class="column">
+                    <form action="{% url 'FestivalReservations:reservation-page' fest %}" method='POST'> {% csrf_token %}
+                        {{form.as_p}}
+                        <input class="save_button" name="reserve" type='submit' value='Rezervovat' />
+                        <input class="save_button" name="reserve_and_register" type='submit' value='Rezervovat a registrovat' />
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+
+    {% else %}
+        <div class="content">
+            <p>Vše vyprodáno</p>
+        </div>
+    {% endif %}
+    {% if success == 0%}
+    <p>Rezervace proběhla úspěšně</p>
+    {%endif%}
+{% endblock %}

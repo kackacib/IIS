@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{%for Interpret in interpret_list%}
+    <div class="interpret_container">
+		<h2>{{Interpret}}</h2>
+        <div class="interpret_settings">
+            {% if request.user.groups.all.0.name == "admin" or request.user.groups.all.0.name == "organizer"%}
+                <a href="{% url 'FestivalReservations:InterpretUpdate' Interpret.id %}"><button class="btn success">Upravit</button></a>
+                <a href="{% url 'FestivalReservations:InterpretDelete' Interpret.id %}"><button class="btn danger">Smazat</button></a>
+            {% endif %}
+            <a href="{% url 'FestivalReservations:InterpretDetail' Interpret.id %}"><button class="btn info">Detail</button></a>
+        </div>
+    </div>
+	{%endfor%}
+{% endblock %}

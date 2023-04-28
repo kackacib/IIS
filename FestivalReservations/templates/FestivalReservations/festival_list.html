@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+    {% block content %}
+    <div class="custom-select">
+       <!--  <form action="{% url 'FestivalReservations:FestivalList' %}"> -->
+        <p style="float: left; margin-top: 5px;">Seřadit: </p>
+            <select id="selectbox" name="" onchange="javascript:location.href = this.value;"> 
+                {% if request.path == "/fest/FestivalList/FestivalBrand" %}
+                    <option value="FestivalBrand" selected>Název festivalu</option>
+                {% else %}
+                    <option value="FestivalBrand">Název festivalu</option>
+                {% endif %}
+                {% if request.path == "/fest/FestivalList/PriceForTicket" %}
+                    <option value="PriceForTicket" selected>Cena za lístek</option>
+                {% else %}
+                    <option value="PriceForTicket">Cena za lístek</option>
+                {% endif %}
+
+                {% if request.path == "/fest/FestivalList/Capacity" %}
+                    <option value="Capacity" selected>Kapacita</option>
+                {% else %}
+                    <option value="Capacity">Kapacita</option>
+                {% endif %}
+            </select>
+    </div>
+    {% if request.path == "/fest/FestivalList/FestivalBrand" %}
+        {%for Fest in festival_list|dictsort:"FestivalBrand" %}
+            <div class="fest_container">
+                <h2>{{Fest}}</h2>
+                <div class="fest_settings">
+                    {% if request.user.groups.all.0.name == "admin" or request.user.groups.all.0.name == "organizer"%}
+                    <a href="{% url 'FestivalReservations:FestivalUpdate' Fest.id %}"><button class="btn success">Upravit</button></a>
+                    <a href="{% url 'FestivalReservations:FestivalDelete' Fest.id %}"><button class="btn danger">Smazat</button></a>
+                    <a href="{% url 'FestivalReservations:AddShow' Fest.id %}"><button class="btn success">Přidat vystoupení</button></a>
+                    {% endif %}
+                    <a href="{% url 'FestivalReservations:FestivalDetail' Fest.id %}"><button class="btn info">Detail</button></a>
+                    <a href="{% url 'FestivalReservations:reservation-page' Fest.id %}"><button class="btn info">Reservovat</button></a>
+                </div>
+            </div>
+        {%endfor%}
+    {% elif request.path == "/fest/FestivalList/PriceForTicket" %}
+        {%for Fest in festival_list|dictsort:"PriceForTicket" %}
+            <div class="fest_container">
+                <h2>{{Fest}}</h2>
+                 <div class="fest_settings">
+                    {% if request.user.groups.all.0.name == "admin" or request.user.groups.all.0.name == "organizer"%}
+                   <a href="{% url 'FestivalReservations:FestivalUpdate' Fest.id %}"><button class="btn success">Upravit</button></a>
+                    <a href="{% url 'FestivalReservations:FestivalDelete' Fest.id %}"><button class="btn danger">Smazat</button></a>
+                    <a href="{% url 'FestivalReservations:AddShow' Fest.id %}"><button class="btn success">Přidat vystoupení</button></a>
+                    {% endif %}
+                    <a href="{% url 'FestivalReservations:FestivalDetail' Fest.id %}"><button class="btn info">Detail</button></a>
+                    <a href="{% url 'FestivalReservations:reservation-page' Fest.id %}"><button class="btn info">Reservovat</button></a>
+                </div>
+            </div>
+        {%endfor%}
+    {% elif request.path == "/fest/FestivalList/Capacity" %}
+        {%for Fest in festival_list|dictsort:"Capacity" %}
+            <div class="fest_container">
+                <h2>{{Fest}}</h2>
+                 <div class="fest_settings">
+                    {% if request.user.groups.all.0.name == "admin" or request.user.groups.all.0.name == "organizer"%}
+                    <a href="{% url 'FestivalReservations:FestivalUpdate' Fest.id %}"><button class="btn success">Upravit</button></a>
+                    <a href="{% url 'FestivalReservations:FestivalDelete' Fest.id %}"><button class="btn danger">Smazat</button></a>
+                    <a href="{% url 'FestivalReservations:AddShow' Fest.id %}"><button class="btn success">Přidat vystoupení</button></a>
+                    {% endif %}
+                    <a href="{% url 'FestivalReservations:FestivalDetail' Fest.id %}"><button class="btn info">Detail</button></a>
+                    <a href="{% url 'FestivalReservations:reservation-page' Fest.id %}"><button class="btn info">Reservovat</button></a>
+                </div>
+            </div>
+        {%endfor%}
+    {% elif request.path == "/fest/FestivalList/" %}
+        {%for Fest in festival_list %}
+            <div class="fest_container">
+                <h2>{{Fest}}</h2>
+                <div class="fest_settings">
+                    {% if request.user.groups.all.0.name == "admin" or request.user.groups.all.0.name == "organizer"%}
+                    <a href="{% url 'FestivalReservations:FestivalUpdate' Fest.id %}"><button class="btn success">Upravit</button></a>
+                    <a href="{% url 'FestivalReservations:FestivalDelete' Fest.id %}"><button class="btn danger">Smazat</button></a>
+                    <a href="{% url 'FestivalReservations:AddShow' Fest.id %}"><button class="btn success">Přidat vystoupení</button></a>
+                    {% endif %}
+                    <a href="{% url 'FestivalReservations:FestivalDetail' Fest.id %}"><button class="btn info">Detail</button></a>
+                    <a href="{% url 'FestivalReservations:reservation-page' Fest.id %}"><button class="btn info">Reservovat</button></a>
+                </div>
+            </div>
+        {%endfor%}
+    {% endif %}
+            
+    {% endblock %}
+
+
+
+
+

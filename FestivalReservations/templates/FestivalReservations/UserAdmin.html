@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	{%for user in all_users%}
+	<div class="user_container">
+			<h2 style="font-size: 1em;">Login: {{user.username}}  Role: {{user.groups.all.0.name}}</h2>
+		 	
+		 <div class="user_settings">
+		 	<a href="{% url 'FestivalReservations:UserEditAdmin' user.id %}"><button class="btn success">Upravit</button></a>
+		 	<a href="{% url 'FestivalReservations:ChangePasswordAdmin' user.id %}"><button class="btn success">Změnit heslo</button></a>
+		 	<a href="{% url 'FestivalReservations:UserAdmin' user.id %}"><button class="btn danger">X</button></a>
+		 </div>
+	</div>
+	
+	{%endfor%}	
+	<form action="{% url 'FestivalReservations:AddUser' %}"  method='GET'>
+	<button type='submit'>Nový uživatel</button>
+	</form>
+	{%if delete%}
+	<p>Uživatel byl smazán</p>
+	{%endif%}
+{% endblock %}

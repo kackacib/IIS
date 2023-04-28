@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<div class="container">
+	<img id="festival1">
+	<div class="heading">
+		<h1><a href="{% url 'festivals' %}">Zažij festival.</a></h1>
+	</div>
+</div>
+
+<script>
+    var imgArray = [
+        "{% static 'css/festival1.jpeg' %}",
+        "{% static 'css/festival2.jpeg' %}",
+        "{% static 'css/festival3.jpg' %}"],
+        curIndex = 0;
+        imgDuration = 2500;
+
+    function slideShow() {
+        document.getElementById('festival1').src = imgArray[curIndex];
+        curIndex++;
+        if (curIndex == imgArray.length) { curIndex = 0; }
+        setTimeout("slideShow()", imgDuration);
+    }
+    slideShow();
+</script>
+{% endblock %}

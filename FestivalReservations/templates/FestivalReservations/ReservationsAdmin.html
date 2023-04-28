@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	{%for reservation in all_reservations%}
+	<div class="res_container">
+		<div class="res_info">
+			<h2 style="font-size: 1em;">Uživatel: {{reservation.User|default_if_none:"Neregistrovaný"}} | Festival: {{reservation.Festival}} | Počet: {{reservation.Tickets}} ks | Zaplaceno: <input type="checkbox" {% if reservation.Paid %}checked{% endif %} disabled="True" /></h2>
+
+		 <div class="res_settings">
+		 	<a href="{% url 'FestivalReservations:ReservationEdit' reservation.id %}"><button class="btn success">Upravit</button></a>
+		 	<a href="{% url 'FestivalReservations:ReservationsAdmin' reservation.id %}"><button class="btn danger">X</button></a>
+		 </div>
+		 	
+		</div>
+	</div>
+	{%endfor%}
+	{%if delete%}
+	<p>Odstranění proběhlo úspěšně</p>
+	{%endif%}
+{% endblock %}
